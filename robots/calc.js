@@ -1,7 +1,9 @@
 const state = require('./state.js')
 
 function robot(){
+
 	const cableData = state.load()
+
 		if (cableData.powerUnit	=== 'kVA'){
 		cableData.current = cableData.power/(cableData.voltage/1000)/Math.sqrt(3)
 	} else if (cableData.powerUnit	=== 'kW'){
@@ -10,6 +12,9 @@ function robot(){
 	} else{
 		cableData.current = cableData.power
 	}
+
+	
+
 
 	state.save(cableData)
 }
